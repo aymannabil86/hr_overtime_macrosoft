@@ -310,7 +310,7 @@ class hr_payroll(models.Model):
 							if Flage == False:
 								if rule.type == 'working_day':
 									if attendance.action == 'sign_out':
-										start_overtime = hour_to
+										start_overtime = hour_to + rule.begin_after
 										start_overtime_time = get_time_from_float(start_overtime)
 										start_overtime = tz.localize(datetime.combine(attendance_datetime.date(), start_overtime_time))
 										if start_overtime > attendance_datetime:
